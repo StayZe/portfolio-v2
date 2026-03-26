@@ -67,7 +67,7 @@ export function ContactSection() {
                 GitHub
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/antoine-mandra-401147240/?locale=en"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-primary transition-colors"
@@ -75,7 +75,6 @@ export function ContactSection() {
                 LinkedIn
               </a>
             </div>
-            <p className="mt-4 md:mt-0 hidden md:block">All rights reserved.</p>
           </div>
         </div>
       </section>

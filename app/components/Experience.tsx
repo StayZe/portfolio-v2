@@ -31,7 +31,7 @@ const experiences = [
     id: 2,
     role: "Réalisateur Streaming",
     company: "DVCR",
-    location: "Sedan",
+    location: "Sedan CSSA 08",
     date: "Octobre 2024 - Aujourd'hui",
     icon: <Video className="w-5 h-5 text-primary" />,
     description: [
@@ -72,7 +72,7 @@ export function ExperienceSection() {
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
             className="text-4xl md:text-6xl font-tan tracking-tight text-foreground mb-6"
           >
-            Mes <span className="text-primary italic">Expériences</span>
+            Mes <span className="text-primary italic">expériences</span>
           </motion.h2>
           <Image
             src="/svg/wave.svg"

@@ -63,7 +63,7 @@ export function PassionsSection() {
       {/* Ton H2 fixe au-dessus */}
       <div className="w-full text-center pt-16 absolute top-0 z-10 pointer-events-none">
         <h2 className="text-4xl md:text-6xl font-tan tracking-tight mb-6 drop-shadow-2xl">
-          Mes <span className="text-primary italic">Passions</span>
+          Mes <span className="text-primary italic">passions</span>
         </h2>
       </div>
 

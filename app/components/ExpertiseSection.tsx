@@ -46,7 +46,7 @@ export function ExpertiseSection() {
             className="max-w-2xl"
           >
             <h2 className="text-5xl md:text-7xl font-tan tracking-tight text-foreground mb-6 leading-none">
-              Mon <span className="text-primary italic">Expertise</span>
+              Mon <span className="text-primary italic">expertise</span>
             </h2>
           </motion.div>
 
