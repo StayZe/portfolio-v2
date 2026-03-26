@@ -36,7 +36,7 @@ export function ContactSection() {
           >
             {/* Typographie Géante Façon Studio */}
             <h2 className="text-[12vw] leading-none font-tan text-foreground tracking-tighter uppercase transition-colors duration-500 group-hover:text-foreground/80">
-              Let&apos;s <span className="text-primary italic">Connect</span>
+              Me <span className="text-primary italic">Contacter</span>
             </h2>
           </motion.div>
 
@@ -142,7 +142,7 @@ export function ContactSection() {
                       </span>
                     </div>
                   </div>
-                  <ArrowUpRight className="w-6 h-6 text-foreground/20 group-hover:text-primary transition-colors transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  <ArrowUpRight className="w-6 h-6 text-foreground/20 group-hover:text-primary transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </a>
 
                 {/* Lien Téléphone */}
@@ -164,7 +164,7 @@ export function ContactSection() {
                       </span>
                     </div>
                   </div>
-                  <ArrowUpRight className="w-6 h-6 text-foreground/20 group-hover:text-primary transition-colors transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  <ArrowUpRight className="w-6 h-6 text-foreground/20 group-hover:text-primary transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </a>
               </div>
             </motion.div>

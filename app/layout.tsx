@@ -117,12 +117,12 @@ export default function RootLayout({
     // J'ai passé le lang en "fr" pour le SEO français !
     <html
       lang="fr"
-      className={`${tanMemories.variable} ${helveticaNeue.variable} antialiased`}
+      className={`${tanMemories.variable} ${helveticaNeue.variable} antialiased scroll-pt-20 relative`}
     >
-      <body className="flex flex-col">
+      <body className="flex flex-col relative">
         <SmoothScroll>
           <Header />
-          <main>{children}</main>
+          <main className="relative flex-1">{children}</main>
         </SmoothScroll>
       </body>
     </html>

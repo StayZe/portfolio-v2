@@ -19,21 +19,23 @@ export function PassionsSection() {
   });
 
   // 1. Agrandissement initial (se fait sur les 10 premiers % du scroll)
-  // On s'arrête à 100% de l'écran MOINS le padding de 2rem (p-4 = 1rem * 2)
-  // 1. Agrandissement initial
-  // On utilise la même structure "calc(...)" pour que Framer Motion puisse interpoler les chiffres
+  // --- CORRECTION CI-DESSOUS ---
+  // On utilise 'calc(...)' et 'dvh' pour que Framer Motion calcule la hauteur par rapport à l'espace VISIBLE RÉEL.
+  // calc(80vw - 0rem) et calc(100vw - 2rem) assurent le liseré noir sur les côtés.
   const width = useTransform(
     smoothProgress,
     [0, 0.1],
     ["calc(80vw - 0rem)", "calc(100vw - 2rem)"],
   );
+
+  // CORRECTION : '100dvh' au lieu de '100vh' pour la hauteur maximale visible.
   const height = useTransform(
     smoothProgress,
     [0, 0.1],
-    ["calc(45vw - 0rem)", "calc(100vh - 2rem)"],
+    ["calc(45vw - 0rem)", "calc(100dvh - 2rem)"],
   );
 
-  // L'arrondi fonctionne car les deux valeurs sont en "px"
+  // On garde un léger arrondi (16px) pour l'effet "carte/photographie"
   const borderRadius = useTransform(smoothProgress, [0, 0.1], ["24px", "16px"]);
 
   // 2. Animations de superposition (Stacking Cards effect)
@@ -56,6 +58,7 @@ export function PassionsSection() {
       id="passions"
       // Hauteur augmentée à 500vh pour laisser de larges zones de pause
       className="relative w-full h-[500vh] bg-background text-foreground"
+      style={{ position: "relative" }}
     >
       {/* Ton H2 fixe au-dessus */}
       <div className="w-full text-center pt-16 absolute top-0 z-10 pointer-events-none">
@@ -64,8 +67,7 @@ export function PassionsSection() {
         </h2>
       </div>
 
-      {/* On ajoute le p-4 ici pour créer le cadre tout autour */}
-      <div className="sticky top-0 w-full h-screen p-4 flex items-center justify-center overflow-hidden">
+      <div className="sticky top-0 w-full h-dvh p-4 flex items-center justify-center overflow-hidden">
         {/* Animated Expanding Container */}
         <motion.div
           style={{ width, height, borderRadius }}
@@ -87,6 +89,7 @@ export function PassionsSection() {
             {/* Overlay dégradé pour faire ressortir le texte, fondu avec le fond du site */}
             <div className="absolute inset-0 bg-linear-to-t from-background/90 via-background/20 to-transparent" />
 
+            {/* Positionnement de la légende : bottom-12/16 et left-8/16 */}
             <div className="absolute bottom-12 left-8 md:bottom-16 md:left-16">
               <span className="text-primary font-sans font-bold text-sm md:text-base uppercase tracking-[0.2em] mb-3 block drop-shadow-md">
                 {`// 1`}
@@ -128,7 +131,7 @@ export function PassionsSection() {
             className="absolute inset-0 w-full h-full origin-top border-t border-foreground/10 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]"
           >
             <video
-              src="/videos/tokyo.mp4"
+              src="/videos/music.mp4"
               autoPlay
               loop
               muted
@@ -142,8 +145,13 @@ export function PassionsSection() {
                 {`// 3`}
               </span>
               <h3 className="text-5xl md:text-7xl font-tan text-foreground leading-none drop-shadow-lg">
-                Tokyo - Japon
+                Musique
               </h3>
+            </div>
+            <div className="absolute top-12 right-8 md:top-16 md:right-16">
+              <span className="text-md md:text-lg font-tan italic text-foreground leading-none drop-shadow-lg">
+                Tyler The Creator - COME ON, LET&apos;S GO
+              </span>
             </div>
           </motion.div>
         </motion.div>
