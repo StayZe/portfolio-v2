@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     siteName: "Antoine Mandra - Portfolio",
     images: [
       {
-        url: "/public/img/logo.png", // Ton logo officiel
+        url: "/img/logo.png", // Ton logo officiel
         width: 1200,
         height: 630,
         alt: "Logo Antoine Mandra",
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
     title: "Antoine Mandra | Développeur Web Fullstack",
     description:
       "Je transforme vos idées en expériences numériques exceptionnelles et innovantes avec Next.js, PayloadCMS et WordPress.",
-    images: ["/public/img/logo.png"],
+    images: ["/img/logo.png"],
   },
 
   robots: {
