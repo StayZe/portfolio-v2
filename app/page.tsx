@@ -1,65 +1,98 @@
+import { AnimatedText } from "./components/AnimatedText";
+import { EducationSection } from "./components/Education";
+import { StackSection } from "./components/Stack";
+import { PassionsSection } from "./components/Passions";
+import { ExperienceSection } from "./components/Experience";
+import { AnimatedButton } from "./components/AnimatedButton";
+import { ExpertiseSection } from "./components/ExpertiseSection";
+import { ContactSection } from "./components/ContactSection";
 import Image from "next/image";
 
 export default function Home() {
+  const birthDate = new Date("2005-08-20");
+  const today = new Date();
+
+  // Calculate age safely without using Date.now() directly in a way that triggers the React purity linter overly aggressively,
+  // though new Date() is technically still evaluated at render.
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <div className="text-neutral-900 flex flex-col items-center">
+      {/* Hero Content */}
+      <main className="flex-1 flex flex-col justify-center items-center text-center max-w-7xl w-full min-h-[85vh] py-12 px-6 md:px-12 lg:px-24 mt-20">
+        <h1 className="text-5xl sm:text-7xl lg:text-[5.5rem] tracking-[-0.04em] leading-[1.05] mb-8 flex flex-col items-center">
+          <AnimatedText
+            className="text-primary font-tan"
+            text="Antoine Mandra"
+            baseDelay={0}
+          />
+
+          {/* Conteneur flex pour aligner les vagues avec le texte */}
+          <span className="inline-flex items-center justify-center gap-4 md:gap-8 mt-2 md:mt-4">
+            {/* Vague Gauche */}
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/svg/wave.svg"
+              alt="Wave decoration"
+              width={100}
+              height={100}
+              className="w-10 md:w-16 h-auto opacity-0 animate-slide-up"
+              style={{ animationDelay: "1200ms" }} // Apparaît quand le texte termine son animation
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+            <AnimatedText
+              text="Développeur Web Fullstack"
+              className="text-foreground font-tan italic"
+              baseDelay={500}
+            />
+
+            {/* Vague Droite */}
+            <Image
+              src="/svg/wave.svg"
+              alt="Wave decoration"
+              width={100}
+              height={100}
+              className="w-10 md:w-16 h-auto opacity-0 animate-slide-up"
+              style={{ animationDelay: "1200ms" }}
+            />
+          </span>
+        </h1>
+
+        <p
+          className="text-lg md:text-xl text-foreground mb-12 max-w-2xl leading-relaxed font-sans font-light animate-slide-up"
+          style={{ animationDelay: "1350ms" }}
+        >
+          Je m&apos;appelle Antoine Mandra, développeur web de {age} ans. Je
+          transforme vos idées en expériences numériques exceptionnelles et
+          innovantes avec Next.js, PayloadCMS, Wordpress et Elementor.
+        </p>
+
+        <div
+          className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto animate-slide-up"
+          style={{ animationDelay: "1500ms" }}
+        >
+          <AnimatedButton href="#education" text="Découvrez mon parcours" />
         </div>
       </main>
+
+      {/* Education Section */}
+      <EducationSection />
+
+      <ExperienceSection />
+
+      {/* Tech Stack Section */}
+      <StackSection />
+
+      {/* Passions 3D Section */}
+
+      <ExpertiseSection />
+
+      <PassionsSection />
+
+      <ContactSection />
     </div>
   );
 }

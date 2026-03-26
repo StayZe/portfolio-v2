@@ -1,15 +1,48 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import { Header } from "./components/Header";
+import { SmoothScroll } from "./components/SmoothScroll"; // Import wrapper
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+// 1. Configuration de TAN Memories (Titres)
+const tanMemories = localFont({
+  src: [
+    {
+      path: "./fonts/TAN-MEMORIES-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/TAN-MEMORIES-Italic.ttf",
+      weight: "400",
+      style: "italic",
+    },
+  ],
+  variable: "--font-tan-custom",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+// 2. Configuration d'Helvetica Neue (Texte courant)
+const helveticaNeue = localFont({
+  src: [
+    {
+      path: "./fonts/HelveticaNeueLTW0545Light.otf",
+      weight: "300", // Light
+      style: "normal",
+    },
+    {
+      path: "./fonts/HelveticaNeueLTW0555Roman.otf",
+      weight: "400", // Regular/Roman
+      style: "normal",
+    },
+    {
+      path: "./fonts/HelveticaNeueLTW0585Heavy.otf",
+      weight: "800", // Heavy/Bold
+      style: "normal",
+    },
+  ],
+  variable: "--font-helvetica-custom",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -19,15 +52,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${tanMemories.variable} ${helveticaNeue.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      {/* Removed scroll-behavior: smooth and h-full from html to let Lenis breathe */}
+      <body className="flex flex-col">
+        <SmoothScroll>
+          <Header />
+          <main>{children}</main>
+        </SmoothScroll>
+      </body>
     </html>
   );
 }
