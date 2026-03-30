@@ -25,7 +25,7 @@ export function ContactSection() {
         id="contact"
         className="w-full pt-32 pb-12 bg-background text-foreground relative overflow-hidden flex flex-col items-center border-t border-foreground/10"
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 w-full text-center flex flex-col items-center">
+        <div className="mx-auto px-6 md:px-12 w-full text-center flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -36,7 +36,7 @@ export function ContactSection() {
           >
             {/* Typographie Géante Façon Studio */}
             <h2 className="text-[12vw] leading-none font-tan text-foreground tracking-tighter uppercase transition-colors duration-500 group-hover:text-foreground/80">
-              Me <span className="text-primary italic">Contacter</span>
+              Me <br /> <span className="text-primary italic">Contacter</span>
             </h2>
           </motion.div>
 

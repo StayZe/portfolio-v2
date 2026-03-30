@@ -62,7 +62,9 @@ export const metadata: Metadata = {
     "PayloadCMS",
     "WordPress",
     "Freelance",
-    "Charleville-Mézières", // Localisation très importante pour le SEO local !
+    "Sedan",
+    "Reims",
+    "Charleville-Mézières",
   ],
   authors: [{ name: "Antoine Mandra" }],
   creator: "Antoine Mandra",
@@ -119,6 +121,101 @@ export default function RootLayout({
       lang="fr"
       className={`${tanMemories.variable} ${helveticaNeue.variable} antialiased scroll-pt-20 relative`}
     >
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Person",
+                  "@id": "https://www.antoinemandra.fr/#person",
+                  name: "Antoine Mandra",
+                  jobTitle: "Développeur Web Fullstack",
+                  description:
+                    "Développeur Web expert Next.js, PayloadCMS et WordPress. Création d'applications SaaS et sites vitrines ultra-performants.",
+                  url: "https://www.antoinemandra.fr/",
+                  email: "mandra.antoine@gmail.com",
+                  telephone: "+33620600952",
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Sedan",
+                    postalCode: "08200",
+                    addressCountry: "FR",
+                  },
+                  sameAs: [
+                    "https://www.linkedin.com/in/antoine-mandra-401147240/",
+                    "https://github.com/StayZe", // Ajoute ton lien GitHub ici
+                  ],
+                  knowsAbout: [
+                    "Next.js",
+                    "WordPress",
+                    "PayloadCMS",
+                    "TypeScript",
+                    "SaaS Development",
+                    "Web Performance Optimization",
+                  ],
+                  worksFor: {
+                    "@type": "Organization",
+                    name: "Comsea",
+                    url: "https://comsea.fr/",
+                  },
+                  alumniOf: {
+                    "@type": "CollegeOrUniversity",
+                    name: "ESGI Reims",
+                    address: {
+                      "@type": "PostalAddress",
+                      addressLocality: "Reims",
+                      postalCode: "51100",
+                      addressCountry: "FR",
+                    },
+                  },
+                },
+                {
+                  "@type": "Service",
+                  serviceType: "Développement Web",
+                  provider: { "@id": "https://www.antoinemandra.fr/#person" },
+                  hasOfferCatalog: {
+                    "@type": "OfferCatalog",
+                    name: "Services de développement Antoine Mandra",
+                    itemListElement: [
+                      {
+                        "@type": "Offer",
+                        itemOffered: {
+                          "@type": "Service",
+                          name: "Création de site vitrine",
+                          description:
+                            "Conception de sites vitrines modernes avec WordPress ou Next.js.",
+                        },
+                      },
+                      {
+                        "@type": "Offer",
+                        itemOffered: {
+                          "@type": "Service",
+                          name: "Développement d'application SaaS",
+                          description:
+                            "Architecture complète d'applications SaaS scalables avec Next.js et PayloadCMS.",
+                        },
+                      },
+                      {
+                        "@type": "Offer",
+                        itemOffered: {
+                          "@type": "Service",
+                          name: "Audit de performance Web",
+                          description:
+                            "Optimisation Core Web Vitals et accélération du temps de chargement.",
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            }),
+          }}
+        />
+      </head>
       <body className="flex flex-col relative">
         <SmoothScroll>
           <Header />

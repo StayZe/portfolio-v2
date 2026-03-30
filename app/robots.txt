@@ -1,0 +1,10 @@
+# Autoriser tous les robots à explorer l'intégralité du site
+User-agent: *
+Allow: /
+
+# Bloquer l'accès à d'éventuels dossiers de configuration ou scripts sensibles (si existants)
+Disallow: /admin/
+Disallow: /api/
+
+# Indiquer l'emplacement du sitemap pour faciliter l'indexation
+Sitemap: https://www.antoinemandra.fr/sitemap.xml
