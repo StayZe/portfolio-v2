@@ -59,7 +59,7 @@ export function ContactSection() {
             <p>© {new Date().getFullYear()} Antoine Mandra.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <a
-                href="https://github.com"
+                href="https://github.com/StayZe"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-primary transition-colors"
