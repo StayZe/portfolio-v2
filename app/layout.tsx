@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Header } from "./components/Header";
 import { SmoothScroll } from "./components/SmoothScroll";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 // 1. Configuration de TAN Memories (Titres)
 const tanMemories = localFont({
@@ -217,7 +217,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <GoogleTagManager gtmId="G-1TJG4GRS94" />
+      <GoogleAnalytics gaId="G-1TJG4GRS94" />
       <body className="flex flex-col relative">
         <SmoothScroll>
           <Header />

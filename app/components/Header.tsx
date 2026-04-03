@@ -107,7 +107,7 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "-100%" }}
             transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-            className="fixed inset-0 z-[100] bg-background flex flex-col justify-center px-6 md:hidden"
+            className="fixed inset-0 z-100 bg-background flex flex-col justify-center px-6 md:hidden"
           >
             {/* ... Le reste de ton menu mobile reste identique ... */}
             <div className="absolute top-0 left-0 w-full px-6 h-20 flex justify-between items-center border-b border-foreground/10">
